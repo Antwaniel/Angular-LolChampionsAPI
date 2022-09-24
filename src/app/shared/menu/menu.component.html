@@ -1,0 +1,21 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <!-- <img class="mr-2" src="./favicon.ico" alt="" /> -->
+    <a href="https://www.leagueoflegends.com/en-us/" target="_blank">
+      <img src="assets/img/logol.png" height="40" class="mr-2">
+    </a>
+
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <input
+      #input
+      type="text"
+      (keyup.enter)="getInfo(input.value)"
+      (reset)="true"
+      pInputText
+      placeholder="Search by Name"
+    />
+  </ng-template>
+</p-menubar>
+<router-outlet></router-outlet>

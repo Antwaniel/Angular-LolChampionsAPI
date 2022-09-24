@@ -1,1 +1,390 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  /* margin:10px; */
+  /* Obtener estilos del root (node_modules/primeng/resources/themes/vela-pruple/theme.css */
+  /* background-color: var(--surface-b); */
+  /* background-image: url('./assets/img/bg.jpg');
+ background-size: 100vh;
+ background-size: cover;
+ background-size: initial;
+ background-repeat: no-repeat;
+  z-index: -2;
+  font-family: var(--font-family); */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+}
+
+.card-container {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+}
+
+.card {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  width: 190px;
+  height: 320px;
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.card:hover {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.img-loading {
+  width: 199px;
+  height: 110%;
+  object-fit: cover;
+}
+
+.img-loading:hover {
+  /* overflow: hidden; */
+  scale: 0.96;
+  transition: 0.2s;
+}
+
+.card-footer {
+  position: relative;
+  bottom: 14%;
+  padding-left: 5%;
+  /* display: flex; */
+
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+  background-color: #061c25;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+}
+
+.champion-name {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background-color: brown;
+}
+
+.champion-name,
+.champion-title-header {
+  font-style: italic;
+  color: aliceblue;
+}
+
+.card-footer:hover {
+  background-color: #006680;
+}
+
+.champion-name p {
+  width: 100%;
+  height: 100%;
+}
+
+.champion-name:hover > p {
+  transform: translateX(20px);
+  transition: 1s;
+}
+
+.splash-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 70%;
+  width: 100%;
+  /* padding: 1%; */
+  /* background-color: #006680; */
+}
+
+.splash-bg img {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 20px; */
+  /* border: 1px solid #FFF; */
+  /* filter: blur(4px); */
+  object-fit: cover;
+  /* z-index: 1; */
+}
+
+/* .champion-title{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+} */
+
+.line {
+  position: relative;
+  border: 1px solid #fff;
+  height: 350px;
+  border-radius: 1px;
+}
+
+.champion-title {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1110px) {
+  .champion-title {
+    top: 30%;
+  }
+}
+
+.main-info {
+  margin-left: 20px;
+}
+
+.champion-title-header {
+  font-family: "Beaufort for LOL", serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 0;
+}
+
+.champion-title-header:nth-child(1) {
+  font-size: 40px;
+}
+
+.champion-description {
+  width: 450px;
+  font-family: Spiegel, "Arial", Arial, sans-serif;
+  font-size: 16px;
+}
+
+.abilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .champion-title {
+    top: 20%;
+  }
+}
+
+@media (max-width: 700px) {
+  .champion-title {
+    top: 15%;
+    left: 2%;
+  }
+
+  .champion-title-header {
+    font-size: 15px;
+  }
+  .line {
+    height: 220px;
+  }
+
+  .champion-description {
+    font-size: 13px;
+  }
+}
+
+/* Abilities Section */
+
+.ablt {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: center;
+}
+
+.spell-thumbnail {
+  width: 100%;
+  height: 100%;
+  /* margin: 10px; */
+  filter: blur(1px);
+  opacity: 0.5;
+  border-radius: 20px;
+}
+
+.ability-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: colum;
+  margin-left: 30%;
+}
+
+.ability-img-container div a {
+  margin: 10px;
+}
+
+.spellKey {
+  display: flex;
+  justify-content: center;
+}
+
+.spell-thumbnail:hover {
+  filter: blur(0);
+  opacity: 1;
+  transition: 0.9s;
+}
+
+.spell-thumbnail img {
+  border-radius: 5px;
+}
+
+.spell-thumbnail img:hover {
+  transform: scale(0.9);
+  transition: 0.9s;
+}
+
+/* CUSTOM SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(165, 165, 165);
+  border-radius: 10px;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+}
+
+.loading-bg img {
+  width: 100vw;
+  height: 91vh;
+  object-fit: cover;
+  filter: blur(4px);
+}
+
+.loading-gif {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.loading-title {
+  animation: blinker 1s linear infinite;
+  position: absolute;
+  top: 35%;
+  left: 43%;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.center-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.info-ability {
+  display: flex;
+  flex-direction: row;
+  font-family: consolas, sans-serif;
+  font-size: 8px;
+  font-weight: normal;
+  margin-left: 5%;
+  /* flex-wrap: wrap; */
+}
+
+.info-ability .left {
+  width: 300px;
+}
+
+.right video {
+  width: 360px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+}
+
+.passiveInfo {
+  display: flex;
+  font-family: consolas, sans-serif;
+  font-size: 8px;
+  font-weight: normal;
+}
+
+.passiveInfo .left {
+  width: 300px;
+}
+
+.skins {
+  /* width: 800px; */
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  /* background-color: #006680; */
+}
+
+@media (max-width: 700px) {
+  .passiveInfo {
+    flex-direction: column;
+  }
+
+  .spellInformation{
+    flex-direction: column;
+  }
+
+  app-gallery {
+    width: 330px;
+  }
+}
+
+.champion-title-skins {
+  font-family: "Beaufort for LOL", serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+
+  .info-ability{
+    flex-direction: column;
+  }
+
+
+}

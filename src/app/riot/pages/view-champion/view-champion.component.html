@@ -1,0 +1,127 @@
+<div *ngIf="loadingScreen" class="loader">
+  <div *ngIf="champion && loadingScreen" class="loading-bg">
+    <img src="{{ this.splashScreens }}/{{ champion.id }}_1.jpg" alt="" />
+  </div>
+
+  <h2 class="loading-title">Loading...</h2>
+
+  <div class="loading-gif">
+    <div class="center-info">
+      <!-- <h3>Loading</h3> -->
+      <img src="../../../../assets/img/run.gif" class="loading-gif" alt="" />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="champion && !loadingScreen">
+
+
+  <div class="splash-bg">
+    <img src="{{ this.splashScreens }}/{{ champion.id }}_0.jpg" />
+  </div>
+
+  <div class="champion-title">
+    <div class="line"></div>
+
+    <div class="main-info">
+      <p>{{ champion.tags }}</p>
+      <!-- <p>Dificulty</p> -->
+
+      <p class="champion-title-header">
+        {{ champion.name | uppercase }}
+      </p>
+      <p class="champion-title-header">
+        {{ champion.title | uppercase }}
+      </p>
+
+      <p class="champion-description">{{ champion.lore }}</p>
+    </div>
+  </div>
+
+  <div class="abilities" *ngIf="champion.spells">
+    <h2 class="champion-title-header">{{ "Abilities" | uppercase }}</h2>
+    <br />
+    <div class="ablt">
+      <div class="ability-img-container">
+        <div class="passive">
+          <a (click)="mostrarPassiva()">
+            <img
+              src="{{ passiveImage }}{{ champion.passive.image.full }}"
+              tooltipPosition="top"
+              pTooltip="P"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <div *ngFor="let spell of champion.spells; let i = index">
+          <a>
+            <img
+              (click)="loadInfo(spell, this.spells[i])"
+              tooltipPosition="top"
+              src="{{ this.spellImages }}/{{ champion.spells[i].image.full }}"
+              pTooltip="{{ champion.spells[i].name }} "
+            />
+            <p class="spellKey">{{ this.spells[i] }}</p>
+          </a>
+        </div>
+        <!-- <p *ngIf="loadSpellInfo">
+  {{this.spell.description}}
+</p> -->
+      </div>
+
+      <div *ngIf="showPassive" class="passiveInfo">
+        <div class="left">
+          <h2>[ P ]</h2>
+          <h2>{{ champion.passive.name }}</h2>
+          <h2>{{ champion.passive.description }}</h2>
+        </div>
+        <div class="right">
+          <video
+            src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{
+              keyOrdened
+            }}/ability_{{ keyOrdened }}_P1.webm"
+            type=""
+            autoplay
+          >
+            Browser not supported
+          </video>
+        </div>
+      </div>
+
+      <div *ngIf="!showPassive" class="spellInformation">
+        <app-ability
+          [spell]="this.spell"
+          [spellCappital]="spellCappital"
+          [loadSpellInfo]="loadSpellInfo"
+          [videoSource]="videoSource"
+        >
+        </app-ability>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <h2 class="champion-title-skins">{{ "Skins" | uppercase }}</h2>
+  <div class="skins">
+    <app-gallery [champion]="champion" [skins]="skins"> </app-gallery>
+  </div>
+
+  <!--
+  <div class="Skins">
+    <h3>SKINS</h3>
+    <img
+      *ngFor="let skin of skins"
+      src="{{ this.loadingScreens }}/{{ champion.id }}_{{ [skin.num] }}.jpg"
+    />
+  </div>
+
+  <h3>{{ champion.title }}</h3>
+  <p>Description: {{ champion.blurb }}</p>
+</div> -->
+
+<router-outlet></router-outlet>
+</div>
+<br>
+<app-footer></app-footer>

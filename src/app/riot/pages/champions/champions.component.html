@@ -1,0 +1,61 @@
+<div *ngIf="loadingScreen" class="loader">
+  <div class="loading-bg">
+    <img src="../../../../assets/img/arcadia.png" alt="" />
+  </div>
+
+  <h2 class="loading-title">Loading...</h2>
+
+  <div class="loading-gif">
+    <div class="center-info">
+      <!-- <h3>Loading</h3> -->
+      <img src="../../../../assets/img/run.gif" class="loading-gif" alt="" />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loadingScreen" class="card-container">
+  <div class="card" *ngFor="let champion of champions; let i = index">
+    <div class="car-header">
+      <a [routerLink]="['/view', champion.id]">
+        <img
+          class="img-loading"
+          src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{
+            champion.id
+          }}_0.jpg"
+        />
+      </a>
+    </div>
+
+    <div class="card-footer">
+      <a [routerLink]="['/view', champion.id]" class="champion-name">
+        <p>{{ champion.id | uppercase }}</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- <div class="grid">
+
+
+
+  <div class="col-4" *ngFor="let champion of champions; let i = index">
+
+
+  <p-card
+
+      [header]="champion.id"
+      [style]="{'width': '200px', 'margin-top': '1em', 'text-align':'center'}">
+        <ng-template pTemplate="header">
+
+             <img  class="img-loading"
+src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champion.id}}_1.jpg">
+
+        </ng-template>
+
+    </p-card>
+
+
+ </div>
+ </div> -->

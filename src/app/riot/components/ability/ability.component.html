@@ -1,0 +1,24 @@
+<div *ngIf="loadSpellInfo"
+class="info-ability">
+
+  <div class="left">
+<h2> [ {{  spellCappital  }} ]</h2>
+<h2>{{ spell.name }}</h2>
+<h2>{{ spell.description }}</h2>
+
+  </div>
+  <div
+     class="right">
+
+    <video [src]="videoSource"  type="video/mp4" autoplay>
+        Browser not supported
+    </video>
+
+  </div>
+
+
+</div>
+
+
+
+
